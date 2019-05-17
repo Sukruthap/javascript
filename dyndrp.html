@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+SELECT STATE:<select id="state" onchange="myFunc()">
+<option>--select</option>
+<option>AndhraPradesh</option>
+<option>Telegana</option>
+</select><br>
+SELECT DISTRICT:<select id="dist">
+
+</select><br>
+SELECT TOWN:<select id="twn" >
+</select>
+</head>
+<body>
+<script language="javascript">
+function myFunc(){
+var stat=document.getElementById("state").value;
+alert(stat);
+if(stat=="AndhraPradesh"){
+document.getElementById("dist").innerHTML="<option>Chittoor</option><option>Kadapa</option>";
+}
+if(stat=="Telegana"){
+document.getElementById("dist").innerHTML="<option>Hyderabad</option><option>secunderbad</option>";
+}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<dialog id="favDialog">
+  <form method="dialog">
+  <p>Greetings, one and all!</p>
+    <p><label>Select Message:
+      <select>
+        <option></option>
+        <option>Welcome</option>
+        <option>Hi</option>
+        <option>Bye</option>
+      </select>
+    </label></p>
+    <menu>
+      <button value="cancel">Cancel</button>
+      <button id="confirmBtn" value="default">Confirm</button>
+    </menu>
+  </form>
+</dialog>
+<menu>
+  <button id="updateDetails">Update details</button>
+</menu>
+
+<output aria-live="polite"></output>
+
+<script>
+  (function() {
+  var updateButton = document.getElementById('updateDetails');
+  var favDialog = document.getElementById('favDialog');
+  var outputBox = document.getElementsByTagName('output')[0];
+  var selectEl = document.getElementsByTagName('select')[0];
+  var confirmBtn = document.getElementById('confirmBtn');
+
+  // “Update details” button opens the <dialog> modally
+  updateButton.addEventListener('click', function onOpen() {
+    if (typeof favDialog.showModal === "function") {
+      favDialog.showModal();
+    } else {
+      alert("The dialog API is not supported by this browser");
+    }
+  });
+  // "message selection" input sets the value of the submit button
+  selectEl.addEventListener('change', function onSelect(e) {
+    confirmBtn.value = selectEl.value;
+  });
+  // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+  favDialog.addEventListener('close', function onClose() {
+    outputBox.value = favDialog.returnValue + " button clicked " .toString();//+ (new Date())
+  });
+})();
+</script>
+</body>
+</html>

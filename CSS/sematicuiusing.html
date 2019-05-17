@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+</head>
+<body>
+<div class="ui dropdown">
+  <div class="text"></div>
+  <i class="dropdown icon"></i>
+</div>
+
+<script>
+  $('.ui.dropdown')
+  .dropdown({values: [
+      {
+        name: 'Male',
+        value: 'male'
+      },
+      {
+        name     : 'Female',
+        value    : 'female',
+        selected : true
+      }
+    ]
+  });
+</script>
+</body>
+</html>

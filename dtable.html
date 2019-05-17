@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<table id="tbl" border=1px soild black>
+
+</table>
+<input type="button" value="generate dynamic table" onclick="myFun()">
+</head>
+
+<body>
+<script>
+function myFun(){
+var x="<tr><th>Name</th><th>Id</th><th>Salary</th>";
+var data=[
+{name:"Lalasa",id:1,salary:30000},
+{name:"Lalasa",id:1,salary:30000},
+{name:"Lalasa",id:1,salary:30000},
+{name:"Lalasa",id:1,salary:30000},
+{name:"Lalasa",id:1,salary:30000}
+]
+for(var i=0;i<data.length;i++){
+x=x+"<tr><td>"+data[i].name+"</td><td>"+data[i].id+"</td><td>"+data[i].salary+"</td></tr>";
+}
+document.getElementById("tbl").innerHTML=x;
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    .intro{
+        font-size: 50px;
+    }
+</style>
+</head>
+<body>
+
+<h1>CSS changing</h1>
+<!-- <p id="getbyid">This is paragraph text</p> -->
+<p class = "intro">Trying css change</p>
+
+<button onclick="change()">click</button>
+
+<script>
+    function change(){
+        document.getElementsByClassName("intro")[0].style.fontSize = "20px";
+    }
+</script>
+</body>
+</html>

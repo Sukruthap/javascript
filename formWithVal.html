@@ -1,0 +1,134 @@
+<html>
+<head>
+<h1>EmployeeDetails Form</h1>
+<form action="regf.html" method=post onsubmit="return createEmail()">
+<table>
+<tr><td><span>Employee Name:</span></td><td><span><input type="text" id="eId" name="eName" placeholder="Enter employee name"></span> <span id="eN"></span></td></tr>
+<tr><td><span>Company Name:</span></td><td><span><input type="text"id="cId" name="cName" placeholder="Enter company name"></span><span id="cN"></span></td></tr>
+<tr><td><span>Password:</span></td><td><span><input type="password" id="pId"name="Pswd" placeholder="Enter password"></span></td>></tr>
+<tr><td><span>Confirm Password:</span></td><td><span><input type="password" id="cpId"name="cPswd" placeholder="Enter confirm password"></span></td></tr>
+<tr><td>Select Gender</td></tr>
+<tr><td><input type="radio" id="r1" name="rate" value="Female"> Female</td></tr>
+<tr><td><input type="radio" id="r2" name="rate" value="Male"> Male</td></tr>
+</tr><td><input type="radio" id="r3" name="rate" value="others" > Others</td></tr>
+<tr><td>select Courses</td></tr>
+<tr><td><input class="messageCheckbox" type="checkbox" value="java" >JAVA</td></tr>
+<tr><td><input class="messageCheckbox" type="checkbox" value="testing">TESTING</td></tr>
+<tr><td><input class="messageCheckbox" type="checkbox" value="Angular">ANGULAR</td></tr>
+<tr><td><input class="messageCheckbox" type="checkbox" value="javascript">JAVASCRIPT</td></tr>
+<tr><td><input class="messageCheckbox" type="checkbox" value="React JS">REACT JS</td></tr>
+<tr><td><input type="submit" value="submit"></td>
+<td><input type="button" value="View All" onclick="myFunc()"></td></tr>
+
+</table>
+</form>
+
+<style>
+h1{
+text-align:center;
+color:black;
+
+}
+
+span{
+color:black;
+}
+
+</style>
+</head>
+<body>
+<p id="demo"></p>
+
+<table id="tbl">
+
+</table>
+
+<script>
+
+function createEmail(){
+var employee="";
+var EmployeeName=document.getElementById("eId").value;
+var CompanyName=document.getElementById("cId").value;
+
+if(EmployeeName== "" || EmployeeName == null){
+document.getElementById("eN").innerHTML="Enter EmployeeName";
+return false;
+}
+
+if(CompanyName=="" || CompanyName ==null){
+document.getElementById("cN").innerHTML="Enter CompanyName";
+return false;
+}
+var EmailId=EmployeeName+"@"+CompanyName+".com";
+alert(EmailId);
+var Password=document.getElementById("pId").value;
+var ConfirmPassword=document.getElementById("cpId").value;
+if(Password !== ConfirmPassword){
+alert("enter valid password");
+return false;
+}
+
+//var rate_value="";
+//if (document.getElementById('r1').checked) {
+  //rate_value = document.getElementById('r1').value;
+  //return false;
+//}
+var rate_value = document.querySelector('input[name="rate"]:checked').value;
+if( rate_value =="" || rate_value == null){
+alert("select gender");
+return false;
+}
+//var checkedValue = document.querySelector('.messageCheckbox:checked').value;
+//if( checkedValue == "" || checkedValue == null){
+//alert("select course");
+//return false;
+//}
+var inputElements = document.getElementsByClassName('messageCheckbox');
+console.log(inputElements);
+var checkedValue="";
+for(var i=0; inputElements[i]; ++i){
+     if(inputElements[i].checked){
+        checkedValue = checkedValue +inputElements[i].value;
+      
+		   
+}
+
+}
+console.log(checkedValue);
+}
+function myFunc(){
+var EmployeeName=document.getElementById("eId").value;
+var CompanyName=document.getElementById("cId").value;
+var Password=document.getElementById("pId").value;
+var ConfirmPassword=document.getElementById("cpId").value;
+var rate_value = document.querySelector('input[name="rate"]:checked').value;
+if( rate_value =="" || rate_value == null){
+alert("select gender");
+return false;
+}
+//var checkedValue = document.querySelector('.messageCheckbox:checked').value;
+var inputElements = document.getElementsByClassName('messageCheckbox');
+console.log(inputElements);
+var checkedValue="";
+for(var i=0; inputElements[i]; ++i){
+     if(inputElements[i].checked){
+        checkedValue = checkedValue +inputElements[i].value;     
+		   
+}
+
+}
+document.getElementById("demo").innerHTML=EmployeeName + ", " +CompanyName+" ,"+Password+" ,"+ConfirmPassword +","+rate_value + "," +checkedValue;
+}
+//var employeeDetails=[
+//{name:"Lalasa",company:"Hcl",emailid:"lalasa470@gmail.com"},
+//{name:"Lalasa",company:"Hcl",emailid:"lalasa470@gmail.com"},
+//{name:"Lalasa",company:"Hcl",emailid:"lalasa470@gmail.com"}
+//]
+//for(var i=0;i<employeeDetails.length;i++){
+//var employee=employee+employeeDetails[i].name+employeeDetails[i].company+employeeDetails[i].emailid;
+//}
+//document.getElementById("tbl").innerHTML=employee;
+
+</script>
+</body>
+</html>
